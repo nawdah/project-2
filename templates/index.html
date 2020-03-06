@@ -7,39 +7,61 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Beauty Discovery Tool</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
 
   <div class="container">
+    <!-- Top Row Starts -->
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
         <h1>Beauty Discovery Tool</h1>
         <p>The premiere tool for makeup discovery</p>
       </div>
     </div>
+    <!-- Top Row Begins -->
     <div class="row">
       <div class="col-md-2">
+        <!--Dropdown menus start  -->
         <div class="well">
           <h5>Category:</h5>
           <select id="category" onchange="optionChanged(this.value)"></select>
         </div>
         <div class="well">
-            <h5>Product:</h5>
-            <select id="product" onchange="optionChanged(this.value)"></select>
+          <h5>Product:</h5>
+          <select id="product" onchange="optionChanged(this.value)"></select>
+        </div>
+        <!-- Dropdown menus end -->
+      </div>
+      <!-- Product Column Starts -->
+      <div class="col-md-3">
+        <div id="productinfo">
+          <div id="product_name">
+            <h3>Product: </h3>
+          </div>
         </div>
       </div>
-      <div class="col-md-5">
-        <div id="bar">
-            <div id="product_name">
-                <h3>Product: </h3>
-            </div>
+      <!-- Product Column Ends -->
+      <!-- Product Rating Visualization Starts -->
+      <div class="col-md-3">
+        <div id="productviz">
+          <div id="product_rating">
+            <h3>Product Rating: </h3>
+          </div>
         </div>
       </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
+      <!-- Product Visualization Ends -->
+      <!-- Face Column Starts -->
+      <div class="col-md-4">
+        <div class="float-right" id="face">
+          <img src="../static/images/face.png" alt="" width="350">
+        </div>
       </div>
+      <!-- Face Column Ends -->
     </div>
+    <!-- Top Row Ends -->
+    <!-- Bottom Row Begins -->
     <div class="row">
       <div class="col-md-12">
         <div id="bubble"></div>

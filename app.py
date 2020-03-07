@@ -1,45 +1,60 @@
-#Below Code from Web Scraping HW -- Tailor for project
-from flask import Flask, render_template, redirect
-from flask_pymongo import PyMongo
-import psycopg2
+from flask import Flask, jsonify
+import csv
+import json
+import os
 
-# Create an instance of Flask
+
 app = Flask(__name__)
 
-# Use PyMongo to establish Mongo connection
-# mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_app")
-	
-conn = psycopg2.connect("dbname=suppliers user=postgres password=postgres")
+prod_path = os.listdir("prod_data")
+file_names = []
 
-# Run queries and save results (This is where our top 10 filters will go)
+for filename in prod_path:
+    if filename.endswith(".csv"):
+        file_names.append(filename)
+print(file_names)
 
+j_test = "test.json"
+data = {}
+for x in file_names:
+    csvpath = (f'prod_data/{x}')
+    # jsonfile = open('file.json', 'w')
+    # j_test = "test.json"
 
+    data[x] = {}
+    # data = []
+    with open(csvpath, newline='') as csvfile:
+        csvreader = csv.DictReader(csvfile)
+        for rows in csvreader:
+            id = rows['index']
+            # data.append(rows)
+            data[x][id] = rows
+            # print(rows)
+            # print(data)
 
-# Route to render index.html template using data from Mongo
+    with open(j_test,'w') as json1:
+        json1.write(json.dumps(data,indent=4))
+
+print(data)
+
+# reader = csv.DictReader(csv,fields)
+# for row in reader:
+#     json.dump(row,jsonFile)
+#     jsonfile.write('\n')
+
 @app.route("/")
 def home():
-
-    # Find one record of data from the mongo database
-    mars = mongo.db.mars.find_one()
-    # Return template and data
-    return render_template("index.html", mars=mars)
+    return "Hi mannn"
 
 
-# Route that will trigger the scrape function
+@app.route("/normal")
+def normal():
+    return hello_dict
 
-@app.route("/scrape")
-def scrape():
 
-
-    mars = mongo.db.mars
-    # Run the scrape function
-    mars_data = scrape_marsDB.scrape_test()
-
-    # Update the Mongo database using update and upsert=True
-    mars.update({}, mars_data, upsert=True)
-
-    # Redirect back to home page
-    return redirect("/", code=302)
+@app.route("/jsonified")
+def jsonified():
+    return jsonify(hello_dict)
 
 
 if __name__ == "__main__":

@@ -1,45 +1,47 @@
-#Below Code from Web Scraping HW -- Tailor for project
-from flask import Flask, render_template, redirect
-from flask_pymongo import PyMongo
-import psycopg2
+from flask import Flask, jsonify
+import csv
+import json
 
-# Create an instance of Flask
+
 app = Flask(__name__)
 
-# Use PyMongo to establish Mongo connection
-# mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_app")
-	
-conn = psycopg2.connect("dbname=suppliers user=postgres password=postgres")
+hello_dict = {"Hello": "World!"}
 
-# Run queries and save results (This is where our top 10 filters will go)
+csvpath = ("prod_data/bottom10_blush_price.csv")
+jsonfile = open('file.json', 'w')
+j_test = "test.json"
+data = {}
+with open(csvpath, newline='') as csvfile:
+    # # CSV reader specifies delimiter and variable that holds contents
+    # csvreader = csv.reader(csvfile, delimiter=',')
+    # print(csvreader)
+    # # Read the header row first (skip this step if there is now header)
+    # csv_header = next(csvreader)
+    # print(f"CSV Header: {csv_header}")
+    # # Read each row of data after the header
+    csvreader = csv.DictReader(csvfile)
+    for rows in csvreader:
+        id = rows['id']
+        data[id]=rows
+        # json.dump(row, jsonfile)
+        # jsonfile.write('\n')
+with open(j_test,'w') as json1:
+    json1.write(json.dumps(data,indent=4))
 
 
-
-# Route to render index.html template using data from Mongo
 @app.route("/")
 def home():
-
-    # Find one record of data from the mongo database
-    mars = mongo.db.mars.find_one()
-    # Return template and data
-    return render_template("index.html", mars=mars)
+    return "Hi mannn"
 
 
-# Route that will trigger the scrape function
+@app.route("/normal")
+def normal():
+    return hello_dict
 
-@app.route("/scrape")
-def scrape():
 
-
-    mars = mongo.db.mars
-    # Run the scrape function
-    mars_data = scrape_marsDB.scrape_test()
-
-    # Update the Mongo database using update and upsert=True
-    mars.update({}, mars_data, upsert=True)
-
-    # Redirect back to home page
-    return redirect("/", code=302)
+@app.route("/jsonified")
+def jsonified():
+    return jsonify(hello_dict)
 
 
 if __name__ == "__main__":

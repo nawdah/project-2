@@ -96,6 +96,25 @@ function init() {
 
 
     });
+    // speech();
 };
+// init();
 
-init();
+let voice;
+
+function setup() {
+  voice = new p5.Speech();
+  voice.onLoad = voiceReady;
+  noLoop();
+}
+
+// function voiceReady() {
+	// voice.listVoices();
+// }
+
+function speech() {
+  voice.setVoice("Google UK English Female");
+	voice.speak("Please click a part of the face");
+}  
+
+speech();

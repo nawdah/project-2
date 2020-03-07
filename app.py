@@ -1,33 +1,46 @@
 from flask import Flask, jsonify
 import csv
 import json
+import os
 
 
 app = Flask(__name__)
 
-hello_dict = {"Hello": "World!"}
+prod_path = os.listdir("prod_data")
+file_names = []
 
-csvpath = ("prod_data/bottom10_blush_price.csv")
-jsonfile = open('file.json', 'w')
+for filename in prod_path:
+    if filename.endswith(".csv"):
+        file_names.append(filename)
+print(file_names)
+
 j_test = "test.json"
 data = {}
-with open(csvpath, newline='') as csvfile:
-    # # CSV reader specifies delimiter and variable that holds contents
-    # csvreader = csv.reader(csvfile, delimiter=',')
-    # print(csvreader)
-    # # Read the header row first (skip this step if there is now header)
-    # csv_header = next(csvreader)
-    # print(f"CSV Header: {csv_header}")
-    # # Read each row of data after the header
-    csvreader = csv.DictReader(csvfile)
-    for rows in csvreader:
-        id = rows['id']
-        data[id]=rows
-        # json.dump(row, jsonfile)
-        # jsonfile.write('\n')
-with open(j_test,'w') as json1:
-    json1.write(json.dumps(data,indent=4))
+for x in file_names:
+    csvpath = (f'prod_data/{x}')
+    # jsonfile = open('file.json', 'w')
+    # j_test = "test.json"
 
+    data[x] = {}
+    # data = []
+    with open(csvpath, newline='') as csvfile:
+        csvreader = csv.DictReader(csvfile)
+        for rows in csvreader:
+            id = rows['index']
+            # data.append(rows)
+            data[x][id] = rows
+            # print(rows)
+            # print(data)
+
+    with open(j_test,'w') as json1:
+        json1.write(json.dumps(data,indent=4))
+
+print(data)
+
+# reader = csv.DictReader(csv,fields)
+# for row in reader:
+#     json.dump(row,jsonFile)
+#     jsonfile.write('\n')
 
 @app.route("/")
 def home():

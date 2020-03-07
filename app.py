@@ -6,41 +6,42 @@ import os
 
 app = Flask(__name__)
 
+#Access the Production Data directory (prod_data)
 prod_path = os.listdir("prod_data")
 file_names = []
 
+#Loop through prod_data directory and append CSV name to empty list
 for filename in prod_path:
     if filename.endswith(".csv"):
         file_names.append(filename)
 print(file_names)
 
-j_test = "test.json"
+#Create JSON file which will hold all data from CSVs
+json_makeupdata = "makeup_data.json"
+
+#Create empty dictionary which will store all of the (key, value) data from the CSVs
 data = {}
+
+#For loop which loops through file name list, each CSV file + rows, writes to JSON file
 for x in file_names:
     csvpath = (f'prod_data/{x}')
-    # jsonfile = open('file.json', 'w')
-    # j_test = "test.json"
 
     data[x] = {}
-    # data = []
+
+#Loop through each CSV    
     with open(csvpath, newline='') as csvfile:
         csvreader = csv.DictReader(csvfile)
         for rows in csvreader:
             id = rows['index']
-            # data.append(rows)
             data[x][id] = rows
             # print(rows)
             # print(data)
 
-    with open(j_test,'w') as json1:
+#Write CSV data to consolidated JSON file
+    with open(json_makeupdata,'w') as json1:
         json1.write(json.dumps(data,indent=4))
 
 print(data)
-
-# reader = csv.DictReader(csv,fields)
-# for row in reader:
-#     json.dump(row,jsonFile)
-#     jsonfile.write('\n')
 
 @app.route("/")
 def home():

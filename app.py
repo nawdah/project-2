@@ -31,7 +31,7 @@ with open(j_test,'w') as json1:
 
 @app.route("/")
 def home():
-    return "Hi"
+    return "Hi mannn"
 
 
 @app.route("/normal")

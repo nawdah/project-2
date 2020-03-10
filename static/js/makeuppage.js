@@ -5,24 +5,31 @@
 
 
 function init() {
-    d3.json("test.json").then((data) => {
-        
-        const categories = ["foundation","blush", "eyeliner", "eyeshadow"]
 
-        var top_blush = data[0];
+    const categories = ["Foundation","Blush", "Eyeliner", "Eyeshadow"]
+
+    categories.forEach((obj) => {
+            var options = d3.select("#category").append("option");
+            options.text(`${obj}`).attr("value", `${obj}`);
+        }) 
+
+
+    d3.json("../test.json").then((data) => {
+        
+        
+        console.log(data)
+        var top_blush = data["top10_blush_price.csv"];
+        console.log(top_blush)
         var bottom_blush = data[2];
         var top_blush_rating = data[9];
 
         //FOR DROPDOWN MENU (WE'LL USE THIS TO GENERATE THE CATEGORIES ONCE THE FACE IS CLICKED ON)
-        categories.forEach((obj) => {
-            var options = d3.select("#category").append("option");
-            options.text(`${obj.id}`).attr("value", `${obj.id}`);
-        }) 
+        
 
         //FOR DROPDOWN MENU (WE'LL USE THIS TO GENERATE THE PRODUCTS ONCE THE FACE IS CLICKED ON)
-        top_blush.forEach((obj) => {
-            var options = d3.select("#selID").append("option");
-            options.text(`${obj.id}`).attr("value", `${obj.id}`);
+        top_blush.for in((obj) => {
+            var options = d3.select("#product").append("option");
+            options.text(`${obj["product"]}`).attr("value", `${obj["product"]}`);
         }) 
 
         //FIRST PLOT
@@ -101,8 +108,28 @@ function init() {
 
 
     });
+    // speech();
 };
+// init();
 
+let voice;
+
+function setup() {
+  voice = new p5.Speech();
+  voice.onLoad = voiceReady;
+  noLoop();
+}
+
+// function voiceReady() {
+	// voice.listVoices();
+// }
+
+function speech() {
+  voice.setVoice("Google UK English Female");
+	voice.speak("Please click a part of the face");
+}  
+
+speech();
 init();
 
 //queryselectorall is an array so would need to do a for loop to iterate

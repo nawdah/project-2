@@ -1,4 +1,9 @@
 // OUR INITIAL FUNCTION WHICH WILL GENERATE THE EMPTY PAGE WITH BLANK CHARTS?
+
+//to do this part you need to add an event listener to generate some plot so that when you click it
+//it'll generate the code and everything else for it
+
+
 function init() {
     d3.json("test.json").then((data) => {
         
@@ -118,3 +123,35 @@ function speech() {
 }  
 
 speech();
+init();
+
+//queryselectorall is an array so would need to do a for loop to iterate
+
+function foundation(){
+    var foundation = document.querySelector("[alt='foundation']");
+
+    foundation.addEventListener("click", function(){
+        d3.json('../makeup_data.json', function(data){
+            console.log(data);
+        });
+
+    })
+
+;}
+
+function blush(){
+    var blush = document.querySelectorAll("[alt='blush']");
+
+    
+
+};
+
+function eyeshadow(){
+    var eyeshadow = document.querySelectorAll("[alt='eyeshadow']");
+
+};
+
+function eyeliner(){
+    var eyeliner = document.querySelectorAll("[alt='eyeliner']");
+
+}

@@ -62,21 +62,23 @@
       <div class="col-md-4">
         <div class="float-right" id="face">
           <!-- Image size: 587 width x 419 height -->
-          <img src="../static/images/face.png" alt="" width="350" usemap="#facemap" href="#face" class="face" onclick="changeProduct(face)">
+          <img src="../static/images/face.png" alt="" width="350" usemap="#facemap" href="#face" class="face" onclick="changeProduct('face')">
           <map name="facemap">
             <div class="blush">
-              <area  shape="circle" coords="260,185,25" href="#blush" alt="blush" onclick="changeProduct(blush)">
-              <area shape="circle" coords="100,185,25" href="#blush" alt="blush" onclick="changeProduct(blush)">
+              <area  shape="circle" coords="260,185,25" href="#blush" alt="blush" onclick="changeProduct('blush')">
+              <area shape="circle" coords="100,185,25" href="#blush" alt="blush" onclick="changeProduct('blush')">
             </div>
             <div class="eyeshadow">
-              <area  alt="eyeshadow" id="right" href="#eyeshadow" shape="poly" coords="222,116,230,102,245,90,265,83,286,84,318,100,312,109,290,98,259,100,222,116 " onclick="changeProduct(eyeshadow)">
-              <area alt="eyeshadow" id="left" href="#eyeshadow" shape="poly" coords="133,116,113,106,78,97,45,105,38,104,65,80,89,80,90,81,97,83,105,86,133,116" onclick="changeProduct(eyeshadow)">
+              <area  alt="eyeshadow" id="right" href="#eyeshadow" shape="poly" coords="222,116,230,102,245,90,265,83,286,84,318,100,312,109,290,98,259,100,222,116 " onclick="changeProduct('eyeshadow')">
+              <area alt="eyeshadow" id="left" href="#eyeshadow" shape="poly" coords="133,116,113,106,78,97,45,105,38,104,65,80,89,80,90,81,97,83,105,86,133,116" onclick="changeProduct('eyeshadow')">
             </div>
             <div class="eyeliner">
-              <area  alt="eyeliner" id="right" href="#eyeliner" shape="poly" coords="220,118,259,100,275,100,295,100,305,105,315,110,300,115,275,122,259,124,222,118 " onclick="changeProduct(eyeliner)">
-              <area alt="eyeliner" id="left" href="#eyeliner" shape="poly" coords="131,118,113,106,78,97,42,107,65,120,89,126,105,124,133,118" onclick="changeProduct(eyeliner)">
+              <area  alt="eyeliner" id="right" href="#eyeliner" shape="poly" coords="220,118,259,100,275,100,295,100,305,105,315,110,300,115,275,122,259,124,222,118 " onclick="changeProduct('eyeliner')">
+              <area alt="eyeliner" id="left" href="#eyeliner" shape="poly" coords="131,118,113,106,78,97,42,107,65,120,89,126,105,124,133,118" onclick="changeProduct('eyeliner')">
             </div>
-            <area class="foundation" shape="rect" coords="0,419,587,0" href="#foundation" alt="foundation" onclick="changeProduct(foundation)">
+            <div class="foundation">
+              <area shape="rect" coords="0,419,587,0" href="#foundation" alt="foundation" onclick="changeProduct('foundation')">
+          </div>
           </map>
         </div>
       </div>

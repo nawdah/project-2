@@ -1,24 +1,29 @@
-var image =  document.querySelector("div#face img");
-console.log(image);
+var image =  document.querySelector("[href='#face']");
+
+// console.log(image);
   
-function changeProduct(){
-    if (image.getAttribute('alt') == "blush")
-    {
+function changeProduct(alt){
+    if (alt == "blush"){
         image.src = "../image/blush.png";
-    }else if(image.getAttribute('alt') == "foundation")
-    {
+    }else if(alt == "foundation"){
         image.src = "../image/foundation.png";
-    }else if(image.getAttribute('alt') == "eyeshadow"){
+    }else if(alt == "eyeshadow"){
         image.src = "../image/eyeshadow.png";
     }else{
         image.src = "../image/eyeliner.png";
     }
 }
 
-// var tempValue = 5;
-// console.log(tempValue);
+// function changeProduct(alt) {
+//     if(alt == 'blush') return;
+//     image.src = `../image/${alt}.png`;
+// }
+
+// var tempValue = 4.5;
+
 
 // function setup(){
+
 
 // }
 

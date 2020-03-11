@@ -17,10 +17,12 @@ function changeProduct(areaElem){
 var tempValue = 4.5;
 
 function setup(){
-    let canvas = createCanvas(100,100);
+    let canvas = createCanvas(100,300);
     canvas.parent('product_rating')
-    background(255, 0, 200);
+    background(255);
+}
 
-// function draw(){
+function draw(){
+    rect(0, 20, 50, 200);
 
-// }
+}

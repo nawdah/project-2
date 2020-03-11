@@ -1,8 +1,7 @@
-var image =  document.querySelector("[href='#face']");
-
-// console.log(image);
+var image =  document.querySelector("div#face img");
   
-function changeProduct(alt){
+function changeProduct(areaElem){
+    const alt = areaElem.getAttribute('alt');
     if (alt == "blush"){
         image.src = "../image/blush.png";
     }else if(alt == "foundation"){
@@ -12,20 +11,15 @@ function changeProduct(alt){
     }else{
         image.src = "../image/eyeliner.png";
     }
+    console.log(alt)
 }
 
-// function changeProduct(alt) {
-//     if(alt == 'blush') return;
-//     image.src = `../image/${alt}.png`;
-// }
+var tempValue = 4.5;
 
-// var tempValue = 4.5;
-
-
-// function setup(){
-
-
-// }
+function setup(){
+    let canvas = createCanvas(100,100);
+    canvas.parent('product_rating')
+    background(255, 0, 200);
 
 // function draw(){
 

@@ -75,6 +75,7 @@ function init() {
         
         // Define the plot layout
         var layout = {
+            title: "Product Rating",
             xaxis: { title: "Rating" },
         };
         
@@ -82,57 +83,45 @@ function init() {
         Plotly.newPlot("product_rating", data, layout);
         d3.select("#product_rating").attr("hidden", true);
 
-        //BUBBLE PLOT
-        var trace3 = {
-            x: samples[0].otu_ids,
-            y: samples[0].sample_values,
-            mode: "markers",
-            marker: {
-                size:samples[0].sample_values,
-                color: samples[0].otu_ids
-            },
-            name: "Belly Button Samples",
-            text: samples[0].otu_labels
-        };
-        
-        // Create the data array for the plot
-        var data = [trace3];
-        
-        // Define the plot layout
-        var layout = {
-            xaxis: { title: "OTU ID" },
-        };
+         //TOP PRICE VISUALIZATION PLOT
+         var trace2 = {
+            x: [],
+            y: [],
+         text: [],
+         name: "OTUs",
+         type: "bar",
+         orientation: "h"
+       };
+ 
+       var chartData = [trace2]
+       
+       var layout = {
+         title: "Top 10 Products by Price"
+       };
         
         // Plot the chart to a div tag with id "plot"
-        Plotly.newPlot("bubbleplot", data, layout);
+        Plotly.newPlot("top_price", chartData, layout);
+        d3.select("#top_price").attr("hidden", true);
 
-        //GAUGE PLOT
-        var data = [
-            {
-            domain: { x: [0, 1], y: [0, 1] },
-            value: metadata[0].wfreq,
-            title: { text: "Belly Button Washing Frequency" },
-            type: "indicator",
-            mode: "gauge",
-            gauge: {
-                axis: { range: [null, 9] },
-                steps: [
-                { range: [0, 1], color: "lightgray" },
-                { range: [1, 2], color: "gray" },
-                { range: [2, 3], color: "lightgray" },
-                { range: [3, 4], color: "gray" },
-                { range: [4, 5], color: "lightgray" },
-                { range: [5, 6], color: "gray" },
-                { range: [6, 7], color: "lightgray" },
-                { range: [7, 8], color: "gray" },
-                { range: [8, 9], color: "lightgray" },
-                ],
-            }
-            }
-        ];
+        //TOP RATING VISUALIZATION PLOT
+          var trace3 = {
+            x: [],
+            y: [],
+         text: [],
+         name: "OTUs",
+         type: "bar",
+         orientation: "h"
+       };
+ 
+       var chartData = [trace3]
+       
+       var layout = {
+         title: "Top 10 Products by Rating"
+       };
         
-        var layout = { width: 600, height: 450, margin: { t: 0, b: 0 } };
-        Plotly.newPlot('accelplot', data, layout);
+        // Plot the chart to a div tag with id "plot"
+        Plotly.newPlot("top_rating", chartData, layout);
+        d3.select("#top_rating").attr("hidden", true);
 
 
     });

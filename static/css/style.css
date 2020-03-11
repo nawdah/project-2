@@ -1,0 +1,33 @@
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 80vw
+};
+
+p {
+    font-family: 'Times New Roman', 'Times New Roman', Times, serif;
+    font-size: 10vw
+}
+
+.face{
+    align-items: center;
+    margin: auto;    
+    display: block;
+}
+
+
+
+/* .foundation{
+
+}
+
+.eyeshadow{
+
+}
+
+.eyeliner{
+
+}
+
+.blush{
+
+} */

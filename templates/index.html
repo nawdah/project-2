@@ -8,10 +8,6 @@
   <title>Beauty Discovery Tool</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-  <script language="javascript" type="text/javascript" src="../static/js/p5.js"></script>
-  <script language="javascript" src="../static/js/p5.dom.js"></script>
-  <script language="javascript" src="../static/js/p5.sound.js"></script>
-  <script language="javascript" type="text/javascript" src="../static/js/sketch.js"></script>
   <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
@@ -63,14 +59,16 @@
           <!-- Image size: 587 width x 419 height -->
           <img src="../static/images/face.png" alt="" width="350" usemap="#facemap" href="#face" class="face">
           <map name="facemap">
-            <area shape="circle" coords="260,185,25" href="#blush" alt="blush">
-            <area shape="circle" coords="100,185,25" href="#blush" alt="blush">
-            <area  alt="eyeshadow" id="right" href="#eyeshadow" shape="poly" coords="222,116,230,102,245,90,265,83,286,84,318,100,312,109,290,98,259,100,222,116 ">
-            <area alt="eyeshadow" id="left" href="#eyeshadow" shape="poly" coords="133,116,113,106,78,97,45,105,38,104,65,80,89,80,90,81,97,83,105,86,133,116">
-            <area  alt="eyeliner" id="right" href="#eyeliner" shape="poly" coords="220,118,259,100,275,100,295,100,305,105,315,110,300,115,275,122,259,124,222,118 ">
-            <area alt="eyeliner" id="left" href="#eyeliner" shape="poly" coords="131,118,113,106,78,97,42,107,65,120,89,126,105,124,133,118">
-            <area shape="rect" coords="0,419,587,0" href="#foundation" alt="foundation">
+            <area shape="circle" coords="260,185,25" href="#blush" alt="blush" class="blush">
+            <area shape="circle" coords="100,185,25" href="#blush" alt="blush" class="blush">
+            <area  alt="eyeshadow" id="right" href="#eyeshadow" shape="poly" coords="222,116,230,102,245,90,265,83,286,84,318,100,312,109,290,98,259,100,222,116 " class="eyeshadow">
+            <area alt="eyeshadow" id="left" href="#eyeshadow" shape="poly" coords="133,116,113,106,78,97,45,105,38,104,65,80,89,80,90,81,97,83,105,86,133,116" class="eyeshadow">
+            <area  alt="eyeliner" id="right" href="#eyeliner" shape="poly" coords="220,118,259,100,275,100,295,100,305,105,315,110,300,115,275,122,259,124,222,118 " class="eyeliner">
+            <area alt="eyeliner" id="left" href="#eyeliner" shape="poly" coords="131,118,113,106,78,97,42,107,65,120,89,126,105,124,133,118" class="eyeliner">
+            <area shape="rect" coords="0,419,587,0" href="#foundation" alt="foundation" class="foundation">
             
+            
+
           </map>
         </div>
       </div>
@@ -85,6 +83,11 @@
     </div>
   </div>
 
+
+  <script language="javascript" type="text/javascript" src="../static/js/p5.js"></script>
+  <script language="javascript" src="../static/js/p5.dom.js"></script>
+  <script language="javascript" src="../static/js/p5.sound.js"></script>
+  <script language="javascript" type="text/javascript" src="../static/js/sketch.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>

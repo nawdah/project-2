@@ -24,5 +24,8 @@ function setup(){
 
 function draw(){
     rect(0, 20, 50, 200);
+    fill('red');
+    noStroke();
+    rect(0, 20, 50, 150);
 
 }

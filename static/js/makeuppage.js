@@ -61,14 +61,13 @@ function init() {
             }
         }
 
-        //FIRST PLOT
+        //RATING VISUALIZATION PLOT
         var trace1 = {
-            x: samples[0].sample_values.slice(0,10),
-            y: samples[0].otu_ids.slice(0,10).map(val => `OTU ${val}`),
+            x: [],
+            y: [],
             type: "bar",
             orientation: "h",
-            name: "Belly Button Samples",
-            text: samples[0].otu_labels.slice(0,10)
+            name: "Product Rating"
         };
         
         // Create the data array for the plot
@@ -76,12 +75,12 @@ function init() {
         
         // Define the plot layout
         var layout = {
-            xaxis: { title: "Values" },
-            yaxis: { title: "Otu Names" }
+            xaxis: { title: "Rating" },
         };
         
         // Plot the chart to a div tag with id "plot"
         Plotly.newPlot("product_rating", data, layout);
+        d3.select("#product_rating").attr("hidden", true);
 
         //BUBBLE PLOT
         var trace3 = {
@@ -161,6 +160,17 @@ function foundation(){
 function blush(){
     var blush = document.querySelectorAll("[alt='blush']");
 
+    for(const blush in top_blush) {
+        // console.log(`${blush} = ${top_blush[blush]}`);
+        var blushthings = top_blush[blush]
+        for(const prod in blushthings) {
+            if (prod == "product") {
+                console.log(`${prod} = ${blushthings[prod]}`)
+                var options = d3.selectAll("option");
+                options.text(`${blushthings[prod]}`).attr("value", `${blushthings[prod]}`);
+            }
+        }
+    }
     
 
 };

@@ -31,6 +31,7 @@ function init() {
             var options = d3.select("#category").append("option");
             options.text(`${obj}`).attr("value", `${obj}`);
         }) 
+    d3.select("#category").attr("disabled", true);
 
     var sound = d3.select("#sound").node()
     sound.addEventListener("click", function() {
@@ -60,6 +61,8 @@ function init() {
                 }
             }
         }
+        d3.select("#product").attr("disabled", true);
+
 
         //RATING VISUALIZATION PLOT
         var trace1 = {

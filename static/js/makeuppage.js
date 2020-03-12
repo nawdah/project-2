@@ -105,6 +105,7 @@ function init() {
        var chartData = [trace2]
        
        var layout = {
+        xaxis: { title: "Prices in US dollars" },
          title: "Top 10 Products by Price"
        };
         
@@ -125,7 +126,7 @@ function init() {
        var chartData = [trace3]
        
        var layout = {
-        xaxis: "Price",
+        xaxis: { title: "Ratings from 1 to 5" },
         title: "Top 10 Products by Rating"
        };
         
@@ -157,9 +158,11 @@ foundationListen.addEventListener("click", function(){
     image.src = "../static/images/foundation.png";
 
     topPriceFoundation();
+    topRatingFoundation()
     d3.select("#category").attr("disabled", null);
     d3.select("#product").attr("disabled", null);
     d3.select("#top_price").attr("hidden", null);
+    d3.select("#top_rating").attr("hidden", null);
 
     d3.json("../makeup_data.json").then((data) => {
           

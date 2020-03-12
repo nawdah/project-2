@@ -125,7 +125,8 @@ function init() {
        var chartData = [trace3]
        
        var layout = {
-         title: "Top 10 Products by Rating"
+        xaxis: "Price",
+        title: "Top 10 Products by Rating"
        };
         
         // Plot the chart to a div tag with id "plot"
@@ -140,17 +141,51 @@ init();
 
 //queryselectorall is an array so would need to do a for loop to iterate
 
-function foundation(){
-    var foundation = document.querySelector("[alt='foundation']");
 
-    foundation.addEventListener("click", function(){
-        d3.json('../makeup_data.json', function(data){
-            console.log(data);
-        });
+// function foundation(){
+    
+// ;}
 
+var foundationListen = document.querySelector("[alt='foundation']");
+
+foundationListen.addEventListener("click", function(){
+    // console.log("This is working");
+    // d3.json("../makeup_data.json").then((data) => {
+        // console.log(data);
+    // });
+    var image =  document.querySelector("div#face img");
+    image.src = "../static/images/foundation.png";
+
+    topPriceFoundation();
+    d3.select("#category").attr("disabled", null);
+    d3.select("#product").attr("disabled", null);
+    d3.select("#top_price").attr("hidden", null);
+
+    d3.json("../makeup_data.json").then((data) => {
+          
+        // console.log(data)
+
+        //FOR TESTING PURPOSES ONLY
+        var top_foundation = data["top10_foundation_price.csv"];
+        // console.log(top_blush)
+
+
+        //FOR DROPDOWN MENU (WE'LL USE THIS TO GENERATE THE PRODUCTS ONCE THE FACE IS CLICKED ON)
+       
+        // THE FOLLOWING WAS FOR TESTING ONLY
+        for(const foundation in top_foundation) {
+            // console.log(`${blush} = ${top_blush[blush]}`);
+            var foundationthings = top_foundation[foundation]
+            for(const prod in foundationthings) {
+                if (prod == "product") {
+                    console.log(`${prod} = ${foundationthings[prod]}`)
+                    var options = d3.select("#product").append("option");
+                    options.text(`${foundationthings[prod]}`).attr("value", `${foundationthings[prod]}`);
+                }
+            }
+        }
     })
-
-;}
+});
 
 function blush(){
     var blush = document.querySelectorAll("[alt='blush']");

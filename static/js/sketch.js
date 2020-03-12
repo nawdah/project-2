@@ -23,9 +23,17 @@ function setup(){
 }
 
 function draw(){
-    rect(0, 20, 50, 200);
+
+    beginShape(QUADS);
+    vertex(30, 20); 
+    vertex(30, 75);
+    vertex(50, 75);
+    vertex(50, 20);
+    endShape();
     fill('red');
-    noStroke();
-    rect(0, 20, 50, 150);
+    // rect(0, 20, 50, 200);
+    // fill('red');
+    // noStroke();
+    // rect(0, 20, 50, 100);
 
 }

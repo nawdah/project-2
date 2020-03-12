@@ -74,7 +74,7 @@ function topPriceFoundation(){
         var top_foundation_price = data["top10_foundation_price.csv"];
         // console.log(top_foundation_price)
 
-        var foundation = d3.select("[alt='foundation']");
+        var foundation = document.querySelector("[alt='foundation']");
        
         // Create Empty Arrays (to build chart)
 

@@ -2,10 +2,10 @@
 
 function topPriceBlush(){
     d3.json("../makeup_data.json").then(function(data) {
-        console.log(data)
+        // console.log(data)
 
         var top_blush_price = data["top10_blush_price.csv"];
-        console.log(top_blush_price)
+        // console.log(top_blush_price)
 
         
         var blush = d3.selectAll("[alt='blush']");
@@ -21,44 +21,44 @@ function topPriceBlush(){
             var blush_prod_price = top_blush_price[blush]
             for(const price in blush_prod_price) {
                 if (price == "price") {
-                    console.log(`${price} = ${blush_prod_price[price]}`)
+                    // console.log(`${price} = ${blush_prod_price[price]}`)
                     makeup_price.push(blush_prod_price[price])
                 }
             }
             for(const name in blush_prod_price) {
                 if (name == "product") {
-                    console.log(`${name} = ${blush_prod_price[name]}`)
+                    // console.log(`${name} = ${blush_prod_price[name]}`)
                     product_name.push(blush_prod_price[name])
                 }
             }
             for(const brand in blush_prod_price) {
                 if (brand == "brand") {
-                    console.log(`${brand} = ${blush_prod_price[brand]}`)
+                    // console.log(`${brand} = ${blush_prod_price[brand]}`)
                     brand_name.push(blush_prod_price[brand])
                 }
             }
         }
 
         // Build Plot
-
-        var trace1 = {
-            x: blush_price,
-            y: product_name,
-         text: brand_name,
-         name: "Blush",
-         type: "bar",
-         orientation: "h"
-       };
+//     var trace1 = {
+    //         x: makeup_price,
+    //         y: product_name,
+    //      text: brand_name,
+    //      name: "Eyeshadow",
+    //      type: "bar",
+    //      orientation: "h"
+    //    };
  
-       var chartData = [trace1]
+    //    var chartData = [trace1]
        
-       var layout = {
-         title: "Top 10 Products by Price"
-       };
+    //    var layout = {
+    //      title: "Top 10 Products by Rating"
+    //    };
 
-       Plotly.restyle("top_price", "x", [x]);
-       Plotly.restyle("top_price", "y", [y]);
-       Plotly.restyle("top_price", "text", [text]);
+       Plotly.restyle("top_price", "x", [makeup_price]);
+       Plotly.restyle("top_price", "y", [product_name]);
+       Plotly.restyle("top_price", "text", [brand_name]);
+       Plotly.restyle("top_price", "name", "Blush");
 
 
 })};
@@ -69,10 +69,10 @@ topPriceBlush();
 
 function topPriceFoundation(){
     d3.json("../makeup_data.json").then(function(data) {
-        console.log(data)
+        // console.log(data)
 
         var top_foundation_price = data["top10_foundation_price.csv"];
-        console.log(top_foundation_price)
+        // console.log(top_foundation_price)
 
         var foundation = d3.select("[alt='foundation']");
        
@@ -89,19 +89,19 @@ function topPriceFoundation(){
             // console.log(foundation_prod_price)
             for(const price in foundation_prod_price) {
                 if (price == "price") {
-                    console.log(`${price} = ${foundation_prod_price[price]}`)
+                    // console.log(`${price} = ${foundation_prod_price[price]}`)
                     makeup_price.push(foundation_prod_price[price])
                 }
             }
             for(const name in foundation_prod_price) {
                 if (name == "product") {
-                    console.log(`${name} = ${foundation_prod_price[name]}`)
+                    // console.log(`${name} = ${foundation_prod_price[name]}`)
                     product_name.push(foundation_prod_price[name])
                 }
             }
             for(const brand in foundation_prod_price) {
                 if (brand == "brand") {
-                    console.log(`${brand} = ${foundation_prod_price[brand]}`)
+                    // console.log(`${brand} = ${foundation_prod_price[brand]}`)
                     brand_name.push(foundation_prod_price[brand])
                 }
             }
@@ -109,24 +109,25 @@ function topPriceFoundation(){
 
         // Build Plot
 
-        var trace1 = {
-            x: makeup_price,
-            y: product_name,
-         text: brand_name,
-         name: "Foundation",
-         type: "bar",
-         orientation: "h"
-       };
+    //     var trace1 = {
+    //         x: makeup_price,
+    //         y: product_name,
+    //      text: brand_name,
+    //      name: "Eyeshadow",
+    //      type: "bar",
+    //      orientation: "h"
+    //    };
  
-       var chartData = [trace1]
+    //    var chartData = [trace1]
        
-       var layout = {
-         title: "Top 10 Products by Price"
-       };
+    //    var layout = {
+    //      title: "Top 10 Products by Rating"
+    //    };
 
-       Plotly.restyle("top_price", "x", [x]);
-       Plotly.restyle("top_price", "y", [y]);
-       Plotly.restyle("top_price", "text", [text]);
+       Plotly.restyle("top_price", "x", [makeup_price]);
+       Plotly.restyle("top_price", "y", [product_name]);
+       Plotly.restyle("top_price", "text", [brand_name]);
+       Plotly.restyle("top_price", "name", "Foundation");
 
 
 })};
@@ -137,10 +138,10 @@ topPriceFoundation();
 
 function topPriceEyeliner(){
     d3.json("../makeup_data.json").then(function(data) {
-        console.log(data)
+        // console.log(data)
 
         var top_eyeliner_price = data["top10_eyeliner_price.csv"];
-        console.log(top_eyeliner_price)
+        // console.log(top_eyeliner_price)
 
         var eyeliner = d3.selectAll("[alt='eyeliner']");
         
@@ -157,19 +158,19 @@ function topPriceEyeliner(){
             // console.log(foundation_prod_price)
             for(const price in eyeliner_prod_price) {
                 if (price == "price") {
-                    console.log(`${price} = ${eyeliner_prod_price[price]}`)
+                    // console.log(`${price} = ${eyeliner_prod_price[price]}`)
                     makeup_price.push(eyeliner_prod_price[price])
                 }
             }
             for(const name in eyeliner_prod_price) {
                 if (name == "product") {
-                    console.log(`${name} = ${eyeliner_prod_price[name]}`)
+                    // console.log(`${name} = ${eyeliner_prod_price[name]}`)
                     product_name.push(eyeliner_prod_price[name])
                 }
             }
             for(const brand in eyeliner_prod_price) {
                 if (brand == "brand") {
-                    console.log(`${brand} = ${eyeliner_prod_price[brand]}`)
+                    // console.log(`${brand} = ${eyeliner_prod_price[brand]}`)
                     brand_name.push(eyeliner_prod_price[brand])
                 }
             }
@@ -177,24 +178,25 @@ function topPriceEyeliner(){
 
         // Build Plot
 
-        var trace1 = {
-            x: makeup_price,
-            y: product_name,
-         text: brand_name,
-         name: "Eyeliner",
-         type: "bar",
-         orientation: "h"
-       };
+            //     var trace1 = {
+    //         x: makeup_price,
+    //         y: product_name,
+    //      text: brand_name,
+    //      name: "Eyeshadow",
+    //      type: "bar",
+    //      orientation: "h"
+    //    };
  
-       var chartData = [trace1]
+    //    var chartData = [trace1]
        
-       var layout = {
-         title: "Top 10 Products by Price"
-       };
+    //    var layout = {
+    //      title: "Top 10 Products by Rating"
+    //    };
 
-       Plotly.restyle("top_price", "x", [x]);
-       Plotly.restyle("top_price", "y", [y]);
-       Plotly.restyle("top_price", "text", [text]);
+       Plotly.restyle("top_price", "x", [makeup_price]);
+       Plotly.restyle("top_price", "y", [product_name]);
+       Plotly.restyle("top_price", "text", [brand_name]);
+       Plotly.restyle("top_price", "name", "Eyeliner");
 
 
 })};
@@ -205,10 +207,10 @@ topPriceEyeliner();
 
 function topPriceEyeshadow(){
     d3.json("../makeup_data.json").then(function(data) {
-        console.log(data)
+        // console.log(data)
 
         var top_eyeshadow_price = data["top10_eyeshadow_price.csv"];
-        console.log(top_eyeshadow_price)
+        // console.log(top_eyeshadow_price)
 
         var eyeshadow = d3.selectAll("[alt='eyeshadow']");
 
@@ -225,19 +227,19 @@ function topPriceEyeshadow(){
             // console.log(foundation_prod_price)
             for(const price in eyeshadow_prod_price) {
                 if (price == "price") {
-                    console.log(`${price} = ${eyeshadow_prod_price[price]}`)
+                    // console.log(`${price} = ${eyeshadow_prod_price[price]}`)
                     makeup_price.push(eyeshadow_prod_price[price])
                 }
             }
             for(const name in eyeshadow_prod_price) {
                 if (name == "product") {
-                    console.log(`${name} = ${eyeshadow_prod_price[name]}`)
+                    // console.log(`${name} = ${eyeshadow_prod_price[name]}`)
                     product_name.push(eyeshadow_prod_price[name])
                 }
             }
             for(const brand in eyeshadow_prod_price) {
                 if (brand == "brand") {
-                    console.log(`${brand} = ${eyeshadow_prod_price[brand]}`)
+                    // console.log(`${brand} = ${eyeshadow_prod_price[brand]}`)
                     brand_name.push(eyeshadow_prod_price[brand])
                 }
             }
@@ -245,24 +247,25 @@ function topPriceEyeshadow(){
 
         // Build Plot
 
-        var trace1 = {
-            x: makeup_price,
-            y: product_name,
-         text: brand_name,
-         name: "Eyeshadow",
-         type: "bar",
-         orientation: "h"
-       };
+    //     var trace1 = {
+    //         x: makeup_price,
+    //         y: product_name,
+    //      text: brand_name,
+    //      name: "Eyeshadow",
+    //      type: "bar",
+    //      orientation: "h"
+    //    };
  
-       var chartData = [trace1]
+    //    var chartData = [trace1]
        
-       var layout = {
-         title: "Top 10 Products by Price"
-       };
+    //    var layout = {
+    //      title: "Top 10 Products by Rating"
+    //    };
 
-       Plotly.restyle("top_price", "x", [x]);
-       Plotly.restyle("top_price", "y", [y]);
-       Plotly.restyle("top_price", "text", [text]);
+       Plotly.restyle("top_price", "x", [makeup_price]);
+       Plotly.restyle("top_price", "y", [product_name]);
+       Plotly.restyle("top_price", "text", [brand_name]);
+       Plotly.restyle("top_price", "name", "Eyeshadow");
 
 
 })};

@@ -2,10 +2,10 @@
 
 function topRatingBlush(){
     d3.json("../makeup_data.json").then(function(data) {
-        console.log(data)
+        // console.log(data)
 
         var top_blush_rating = data["top10_blush_rating.csv"];
-        console.log(top_blush_rating)
+        // console.log(top_blush_rating)
 
         
         var blush = d3.selectAll("[alt='blush']");
@@ -21,19 +21,19 @@ function topRatingBlush(){
             var blush_prod_rating = top_blush_rating[blush]
             for(const rating in blush_prod_rating) {
                 if (rating == "rating") {
-                    console.log(`${rating} = ${blush_prod_rating[rating]}`)
+                    // console.log(`${rating} = ${blush_prod_rating[rating]}`)
                     makeup_rating.push(blush_prod_rating[rating])
                 }
             }
             for(const name in blush_prod_rating) {
                 if (name == "product") {
-                    console.log(`${name} = ${blush_prod_rating[name]}`)
+                    // console.log(`${name} = ${blush_prod_rating[name]}`)
                     product_name.push(blush_prod_rating[name])
                 }
             }
             for(const brand in blush_prod_rating) {
                 if (brand == "brand") {
-                    console.log(`${brand} = ${blush_prod_rating[brand]}`)
+                    // console.log(`${brand} = ${blush_prod_rating[brand]}`)
                     brand_name.push(blush_prod_rating[brand])
                 }
             }
@@ -41,24 +41,25 @@ function topRatingBlush(){
 
         // Build Plot
 
-        var trace1 = {
-            x: makeup_rating,
-            y: product_name,
-         text: brand_name,
-         name: "Blush",
-         type: "bar",
-         orientation: "h"
-       };
+    //     var trace1 = {
+    //         x: makeup_rating,
+    //         y: product_name,
+    //      text: brand_name,
+    //      name: "Blush",
+    //      type: "bar",
+    //      orientation: "h"
+    //    };
  
-       var chartData = [trace1]
+    //    var chartData = [trace1]
        
-       var layout = {
-         title: "Top 10 Products by Rating"
-       };
+    //    var layout = {
+    //      title: "Top 10 Products by Rating"
+    //    };
 
-       Plotly.restyle("top_rating", "x", [x]);
-       Plotly.restyle("top_rating", "y", [y]);
-       Plotly.restyle("top_rating", "text", [text]);
+       Plotly.restyle("top_price", "x", [makeup_rating]);
+       Plotly.restyle("top_price", "y", [product_name]);
+       Plotly.restyle("top_price", "text", [brand_name]);
+       Plotly.restyle("top_price", "name", "Blush");
 
 
 })};
@@ -70,10 +71,10 @@ topRatingBlush();
 
 function topRatingFoundation(){
     d3.json("../makeup_data.json").then(function(data) {
-        console.log(data)
+        // console.log(data)
 
         var top_foundation_rating = data["top10_foundation_rating.csv"];
-        console.log(top_foundation_rating)
+        // console.log(top_foundation_rating)
 
         var foundation = d3.select("[alt='foundation']");
        
@@ -90,19 +91,19 @@ function topRatingFoundation(){
             // console.log(foundation_prod_price)
             for(const rating in foundation_prod_rating) {
                 if (rating == "rating") {
-                    console.log(`${rating} = ${foundation_prod_rating[rating]}`)
+                    // console.log(`${rating} = ${foundation_prod_rating[rating]}`)
                     makeup_rating.push(foundation_prod_rating[rating])
                 }
             }
             for(const name in foundation_prod_rating) {
                 if (name == "product") {
-                    console.log(`${name} = ${foundation_prod_rating[name]}`)
+                    // console.log(`${name} = ${foundation_prod_rating[name]}`)
                     product_name.push(foundation_prod_rating[name])
                 }
             }
             for(const brand in foundation_prod_rating) {
                 if (brand == "brand") {
-                    console.log(`${brand} = ${foundation_prod_rating[brand]}`)
+                    // console.log(`${brand} = ${foundation_prod_rating[brand]}`)
                     brand_name.push(foundation_prod_rating[brand])
                 }
             }
@@ -110,24 +111,25 @@ function topRatingFoundation(){
 
         // Build Plot
 
-        var trace1 = {
-            x: makeup_rating,
-            y: product_name,
-         text: brand_name,
-         name: "Foundation",
-         type: "bar",
-         orientation: "h"
-       };
+    //     var trace1 = {
+    //         x: makeup_rating,
+    //         y: product_name,
+    //      text: brand_name,
+    //      name: "Foundation",
+    //      type: "bar",
+    //      orientation: "h"
+    //    };
  
-       var chartData = [trace1]
+    //    var chartData = [trace1]
        
-       var layout = {
-         title: "Top 10 Products by Rating"
-       };
+    //    var layout = {
+    //      title: "Top 10 Products by Rating"
+    //    };
 
-       Plotly.restyle("top_rating", "x", [x]);
-       Plotly.restyle("top_rating", "y", [y]);
-       Plotly.restyle("top_rating", "text", [text]);
+       Plotly.restyle("top_price", "x", [makeup_rating]);
+       Plotly.restyle("top_price", "y", [product_name]);
+       Plotly.restyle("top_price", "text", [brand_name]);
+       Plotly.restyle("top_price", "name", "Foundation");
 
 
 })};
@@ -140,10 +142,10 @@ topRatingFoundation();
 
 function topRatingEyeliner(){
     d3.json("../makeup_data.json").then(function(data) {
-        console.log(data)
+        // console.log(data)
 
         var top_eyeliner_rating = data["top10_eyeliner_rating.csv"];
-        console.log(top_eyeliner_rating)
+        // console.log(top_eyeliner_rating)
 
         var eyeliner = d3.selectAll("[alt='eyeliner']");
         
@@ -160,19 +162,19 @@ function topRatingEyeliner(){
             // console.log(foundation_prod_price)
             for(const rating in eyeliner_prod_rating) {
                 if (rating == "rating") {
-                    console.log(`${rating} = ${eyeliner_prod_rating[rating]}`)
+                    // console.log(`${rating} = ${eyeliner_prod_rating[rating]}`)
                     makeup_rating.push(eyeliner_prod_rating[rating])
                 }
             }
             for(const name in eyeliner_prod_rating) {
                 if (name == "product") {
-                    console.log(`${name} = ${eyeliner_prod_rating[name]}`)
+                    // console.log(`${name} = ${eyeliner_prod_rating[name]}`)
                     product_name.push(eyeliner_prod_rating[name])
                 }
             }
             for(const brand in eyeliner_prod_rating) {
                 if (brand == "brand") {
-                    console.log(`${brand} = ${eyeliner_prod_rating[brand]}`)
+                    // console.log(`${brand} = ${eyeliner_prod_rating[brand]}`)
                     brand_name.push(eyeliner_prod_rating[brand])
                 }
             }
@@ -180,24 +182,25 @@ function topRatingEyeliner(){
 
         // Build Plot
 
-        var trace1 = {
-            x: makeup_rating,
-            y: product_name,
-         text: brand_name,
-         name: "Eyeliner",
-         type: "bar",
-         orientation: "h"
-       };
+    //     var trace1 = {
+    //         x: makeup_rating,
+    //         y: product_name,
+    //      text: brand_name,
+    //      name: "Eyeliner",
+    //      type: "bar",
+    //      orientation: "h"
+    //    };
  
-       var chartData = [trace1]
+    //    var chartData = [trace1]
        
-       var layout = {
-         title: "Top 10 Products by Rating"
-       };
+    //    var layout = {
+    //      title: "Top 10 Products by Rating"
+    //    };
 
-       Plotly.restyle("top_rating", "x", [x]);
-       Plotly.restyle("top_rating", "y", [y]);
-       Plotly.restyle("top_rating", "text", [text]);
+       Plotly.restyle("top_price", "x", [makeup_rating]);
+       Plotly.restyle("top_price", "y", [product_name]);
+       Plotly.restyle("top_price", "text", [brand_name]);
+       Plotly.restyle("top_price", "name", "Eyeliner");
 
 
 })};
@@ -209,10 +212,10 @@ topPriceEyeliner();
 
 function topRatingEyeshadow(){
     d3.json("../makeup_data.json").then(function(data) {
-        console.log(data)
+        // console.log(data)
 
         var top_eyeshadow_rating = data["top10_eyeshadow_rating.csv"];
-        console.log(top_eyeshadow_rating)
+        // console.log(top_eyeshadow_rating)
 
         var eyeshadow = d3.selectAll("[alt='eyeshadow']");
 
@@ -229,19 +232,19 @@ function topRatingEyeshadow(){
             // console.log(foundation_prod_price)
             for(const rating in eyeshadow_prod_rating) {
                 if (rating == "rating") {
-                    console.log(`${rating} = ${eyeshadow_prod_rating[rating]}`)
+                    // console.log(`${rating} = ${eyeshadow_prod_rating[rating]}`)
                     makeup_rating.push(eyeshadow_prod_rating[rating])
                 }
             }
             for(const name in eyeshadow_prod_rating) {
                 if (name == "product") {
-                    console.log(`${name} = ${eyeshadow_prod_rating[name]}`)
+                    // console.log(`${name} = ${eyeshadow_prod_rating[name]}`)
                     product_name.push(eyeshadow_prod_rating[name])
                 }
             }
             for(const brand in eyeshadow_prod_rating) {
                 if (brand == "brand") {
-                    console.log(`${brand} = ${eyeshadow_prod_rating[brand]}`)
+                    // console.log(`${brand} = ${eyeshadow_prod_rating[brand]}`)
                     brand_name.push(eyeshadow_prod_rating[brand])
                 }
             }
@@ -249,24 +252,25 @@ function topRatingEyeshadow(){
 
         // Build Plot
 
-        var trace1 = {
-            x: makeup_rating,
-            y: product_name,
-         text: brand_name,
-         name: "Eyeshadow",
-         type: "bar",
-         orientation: "h"
-       };
+    //     var trace1 = {
+    //         x: makeup_rating,
+    //         y: product_name,
+    //      text: brand_name,
+    //      name: "Eyeshadow",
+    //      type: "bar",
+    //      orientation: "h"
+    //    };
  
-       var chartData = [trace1]
+    //    var chartData = [trace1]
        
-       var layout = {
-         title: "Top 10 Products by Rating"
-       };
+    //    var layout = {
+    //      title: "Top 10 Products by Rating"
+    //    };
 
-       Plotly.restyle("top_price", "x", [x]);
-       Plotly.restyle("top_price", "y", [y]);
-       Plotly.restyle("top_price", "text", [text]);
+       Plotly.restyle("top_price", "x", [makeup_rating]);
+       Plotly.restyle("top_price", "y", [product_name]);
+       Plotly.restyle("top_price", "text", [brand_name]);
+       Plotly.restyle("top_price", "name", "Eyeshadow");
 
 
 })};

@@ -26,12 +26,20 @@ function speech() {
 function init() {
 
     //SETTING THE CATEGORIES FOR THE DROPDOWN
-    const categories = ["Foundation","Blush", "Eyeliner", "Eyeshadow"]
-    //APPENDING THEM TO THE DROPDOWN MEU
-    categories.forEach((obj) => {
-            var options = d3.select("#category").append("option");
-            options.text(`${obj}`).attr("value", `${obj}`);
-        }) 
+    // const categories = ["Foundation","Blush", "Eyeliner", "Eyeshadow"]
+    // categories.forEach((obj) => {
+    //         var options = d3.select("#category").append("option");
+    //         options.text(`${obj}`).attr("value", `${obj}`);
+    //     }) 
+
+    //APPENDING EMPTY PRODUCTS TO THE DROPDOWN MEU
+    // const products = ["","","","","","","","","",""]
+    // products.forEach((obj) => {
+    //     var options = d3.select("#product").append("option");
+    //     options.text(`${obj}`).attr("value", `${obj}`);
+    // }) 
+
+
     //DISABLING CLICK FUNCTIONALITY FOR CATEGORY UNTIL A PART OF THE FACE IS CLICKED ON    
     d3.select("#category").attr("disabled", true);
     
@@ -105,7 +113,10 @@ function init() {
        var chartData = [trace2]
        
        var layout = {
+        hovermode: "closest",
+        hoverlabel: {bgcolor: "#FFF"},
         xaxis: { title: "Prices in US dollars" },
+        yaxis: {showticklabels: false},
          title: "Top 10 Products by Price"
        };
         
@@ -126,11 +137,13 @@ function init() {
        var chartData = [trace3]
        
        var layout = {
+        hovermode: "closest",
+        hoverlabel:{bgcolor: "#fff" },
         xaxis: { title: "Ratings from 1 to 5" },
+        yaxis: {showticklabels: false},
         title: "Top 10 Products by Rating",
-        autosize: true,
-        yaxis: {automargin: true, titlefont: {size: 30}},
-       };
+        autosize: true
+       }
 
        var config = {responsive: true}
        
@@ -179,46 +192,179 @@ foundationListen.addEventListener("click", function(){
 
 
         //FOR DROPDOWN MENU (WE'LL USE THIS TO GENERATE THE PRODUCTS ONCE THE FACE IS CLICKED ON)
-       
-        // THE FOLLOWING WAS FOR TESTING ONLY
+       d3.select("#product").selectAll("option").remove();
+    //    console.log(optionsremove);
+        // LOOPING THROUGH THE PRODUCTS TO ADD THEM TO THE DROPDOWN MENU
         for(const foundation in top_foundation) {
             // console.log(`${blush} = ${top_blush[blush]}`);
             var foundationthings = top_foundation[foundation]
             for(const prod in foundationthings) {
                 if (prod == "product") {
-                    console.log(`${prod} = ${foundationthings[prod]}`)
+                    // console.log(`${prod} = ${foundationthings[prod]}`)
                     var options = d3.select("#product").append("option");
-                    options.text(`${foundationthings[prod]}`).attr("value", `${foundationthings[prod]}`);
+                    options.text(`${foundationthings[prod]}`).attr("value", `${foundationthings[prod]}`)};
+                    }
+                }
+        })
+});
+
+dropDownListen = document.querySelector("#category");
+
+// function blush(){
+//     var blush = document.querySelectorAll("[alt='blush']");
+
+//     for(const blush in top_blush) {
+//         // console.log(`${blush} = ${top_blush[blush]}`);
+//         var blushthings = top_blush[blush]
+//         for(const prod in blushthings) {
+//             if (prod == "product") {
+//                 console.log(`${prod} = ${blushthings[prod]}`)
+//                 var options = d3.selectAll("option");
+//                 options.text(`${blushthings[prod]}`).attr("value", `${blushthings[prod]}`);
+//             }
+//         }
+//     }
+// };
+
+var blushListen = document.querySelector("[alt='blush']");
+
+blushListen.addEventListener("click", function(){
+    // console.log("This is working");
+    // d3.json("../makeup_data.json").then((data) => {
+        // console.log(data);
+    // });
+    var image =  document.querySelector("div#face img");
+    image.src = "../static/images/blush.png";
+
+    topPriceBlush();
+    topRatingBlush();
+    d3.select("#category").attr("disabled", null);
+    d3.select("#product").attr("disabled", null);
+    d3.select("#top_price").attr("hidden", null);
+    d3.select("#top_rating").attr("hidden", null);
+
+    d3.json("../makeup_data.json").then((data) => {
+          
+        // console.log(data)
+
+        //FOR TESTING PURPOSES ONLY
+        var top_blush = data["top10_blush_price.csv"];
+        // console.log(top_blush)
+
+
+        //FOR DROPDOWN MENU (WE'LL USE THIS TO GENERATE THE PRODUCTS ONCE THE FACE IS CLICKED ON)
+        d3.select("#product").selectAll("option").remove();
+
+        // LOOPING THROUGH THE PRODUCTS TO ADD THEM TO THE DROPDOWN
+        for(const blush in top_blush) {
+            // console.log(`${blush} = ${top_blush[blush]}`);
+            var blushthings = top_blush[blush]
+            for(const prod in blushthings) {
+                if (prod == "product") {
+                    // console.log(`${prod} = ${blushthings[prod]}`)
+                    var options = d3.select("#product").append("option");
+                    options.text(`${blushthings[prod]}`).attr("value", `${blushthings[prod]}`);
                 }
             }
         }
     })
 });
 
-function blush(){
-    var blush = document.querySelectorAll("[alt='blush']");
-
-    for(const blush in top_blush) {
-        // console.log(`${blush} = ${top_blush[blush]}`);
-        var blushthings = top_blush[blush]
-        for(const prod in blushthings) {
-            if (prod == "product") {
-                console.log(`${prod} = ${blushthings[prod]}`)
-                var options = d3.selectAll("option");
-                options.text(`${blushthings[prod]}`).attr("value", `${blushthings[prod]}`);
-            }
-        }
-    }
-    
-
-};
-
 function eyeshadow(){
     var eyeshadow = document.querySelectorAll("[alt='eyeshadow']");
 
 };
 
+var eyeshadowListen = document.querySelector("[alt='eyeshadow']");
+
+eyeshadowListen.addEventListener("click", function(){
+    // console.log("This is working");
+    // d3.json("../makeup_data.json").then((data) => {
+        // console.log(data);
+    // });
+    var image =  document.querySelector("div#face img");
+    image.src = "../static/images/eyeshadow.png";
+
+    topPriceEyeshadow();
+    topRatingEyeshadow();
+    d3.select("#category").attr("disabled", null);
+    d3.select("#product").attr("disabled", null);
+    d3.select("#top_price").attr("hidden", null);
+    d3.select("#top_rating").attr("hidden", null);
+
+    d3.json("../makeup_data.json").then((data) => {
+          
+        // console.log(data)
+
+        //FOR TESTING PURPOSES ONLY
+        var top_eyeshadow = data["top10_eyeshadow_price.csv"];
+        // console.log(top_blush)
+
+
+        //FOR DROPDOWN MENU (WE'LL USE THIS TO GENERATE THE PRODUCTS ONCE THE FACE IS CLICKED ON)
+        d3.select("#product").selectAll("option").remove();
+
+        // LOOPING THROUGH THE PRODUCTS TO ADD THEM TO THE DROPDOWN MENU
+        for(const eyeshadow in top_eyeshadow) {
+            // console.log(`${blush} = ${top_blush[blush]}`);
+            var eyeshadowthings = top_eyeshadow[eyeshadow]
+            for(const prod in eyeshadowthings) {
+                if (prod == "product") {
+                    // console.log(`${prod} = ${eyeshadowthings[prod]}`)
+                    var options = d3.select("#product").append("option");
+                    options.text(`${eyeshadowthings[prod]}`).attr("value", `${eyeshadowthings[prod]}`);
+                }
+            }
+        }
+    })
+});
+
 function eyeliner(){
     var eyeliner = document.querySelectorAll("[alt='eyeliner']");
 
 }
+
+var eyelinerListen = document.querySelector("[alt='eyeliner']");
+// var eyelinerListen = d3.select("[alt = 'eyeliner']").node();
+
+eyelinerListen.addEventListener("click", function(){
+    // console.log("This is working");
+    // d3.json("../makeup_data.json").then((data) => {
+        // console.log(data);
+    // });
+    var image =  document.querySelector("div#face img");
+    image.src = "../static/images/eyeliner.png";
+
+    topPriceEyeliner();
+    topRatingEyeliner();
+    d3.select("#category").attr("disabled", null);
+    d3.select("#product").attr("disabled", null);
+    d3.select("#top_price").attr("hidden", null);
+    d3.select("#top_rating").attr("hidden", null);
+
+    d3.json("../makeup_data.json").then((data) => {
+          
+        // console.log(data)
+
+        //FOR TESTING PURPOSES ONLY
+        var top_eyeliner = data["top10_eyeliner_price.csv"];
+        // console.log(top_blush)
+
+
+        //FOR DROPDOWN MENU (WE'LL USE THIS TO GENERATE THE PRODUCTS ONCE THE FACE IS CLICKED ON)
+        d3.select("#product").selectAll("option").remove();
+
+        // LOOPING THROUGH THE PRODUCTS TO ADD THEM TO THE DROPDOWN MENU
+        for(const eyeliner in top_eyeliner) {
+            // console.log(`${blush} = ${top_blush[blush]}`);
+            var eyelinerthings = top_eyeliner[eyeliner]
+            for(const prod in eyelinerthings) {
+                if (prod == "product") {
+                    // console.log(`${prod} = ${eyelinerthings[prod]}`)
+                    var options = d3.select("#product").append("option");
+                    options.text(`${eyelinerthings[prod]}`).attr("value", `${eyelinerthings[prod]}`);
+                }
+            }
+        }
+    })
+});

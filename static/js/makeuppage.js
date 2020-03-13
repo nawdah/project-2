@@ -127,11 +127,16 @@ function init() {
        
        var layout = {
         xaxis: { title: "Ratings from 1 to 5" },
-        title: "Top 10 Products by Rating"
+        title: "Top 10 Products by Rating",
+        autosize: true,
+        yaxis: {automargin: true, titlefont: {size: 30}},
        };
+
+       var config = {responsive: true}
+       
         
         // Plot the chart to a div tag with id "plot"
-        Plotly.newPlot("top_rating", chartData, layout);
+        Plotly.newPlot("top_rating", chartData, layout, config);
         d3.select("#top_rating").attr("hidden", true);
 
 

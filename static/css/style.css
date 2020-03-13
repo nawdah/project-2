@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Lora', serif;
+    letter-spacing: -2px;
+}
+
+h5 {
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+p {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+
+}
+
+.btn-dark {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+/* .jumbotron {
+
+} */

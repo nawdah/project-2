@@ -47,7 +47,7 @@ d3.json("../makeup_data.json").then((data) => {
 
     let topEyeshadowRating = data["top10_eyeshadow_rating"];
 
-    let eyeshadow = d3.selectAll("[alt='eyeshdaow']");
+    let eyeshadow = d3.selectAll("[alt='eyeshadow']");
     for(const e in topEyeshadowRating){
         var eyeshadowProdRating = topEyeshadowRating[e];
         for(const rating in eyeshadowProdRating){

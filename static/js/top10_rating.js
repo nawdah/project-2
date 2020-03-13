@@ -56,10 +56,10 @@ function topRatingBlush(){
     //      title: "Top 10 Products by Rating"
     //    };
 
-       Plotly.restyle("top_price", "x", [makeup_rating]);
-       Plotly.restyle("top_price", "y", [product_name]);
-       Plotly.restyle("top_price", "text", [brand_name]);
-       Plotly.restyle("top_price", "name", "Blush");
+       Plotly.restyle("top_rating", "x", [makeup_rating]);
+       Plotly.restyle("top_rating", "y", [product_name]);
+       Plotly.restyle("top_rating", "text", [brand_name]);
+       Plotly.restyle("top_rating", "name", "Blush");
 
 
 })};
@@ -126,10 +126,10 @@ function topRatingFoundation(){
     //      title: "Top 10 Products by Rating"
     //    };
 
-       Plotly.restyle("top_price", "x", [makeup_rating]);
-       Plotly.restyle("top_price", "y", [product_name]);
-       Plotly.restyle("top_price", "text", [brand_name]);
-       Plotly.restyle("top_price", "name", "Foundation");
+       Plotly.restyle("top_rating", "x", [makeup_rating]);
+       Plotly.restyle("top_rating", "y", [product_name]);
+       Plotly.restyle("top_rating", "text", [brand_name]);
+       Plotly.restyle("top_rating", "name", "Foundation");
 
 
 })};
@@ -197,10 +197,10 @@ function topRatingEyeliner(){
     //      title: "Top 10 Products by Rating"
     //    };
 
-       Plotly.restyle("top_price", "x", [makeup_rating]);
-       Plotly.restyle("top_price", "y", [product_name]);
-       Plotly.restyle("top_price", "text", [brand_name]);
-       Plotly.restyle("top_price", "name", "Eyeliner");
+       Plotly.restyle("top_rating", "x", [makeup_rating]);
+       Plotly.restyle("top_rating", "y", [product_name]);
+       Plotly.restyle("top_rating", "text", [brand_name]);
+       Plotly.restyle("top_rating", "name", "Eyeliner");
 
 
 })};
@@ -267,10 +267,10 @@ function topRatingEyeshadow(){
     //      title: "Top 10 Products by Rating"
     //    };
 
-       Plotly.restyle("top_price", "x", [makeup_rating]);
-       Plotly.restyle("top_price", "y", [product_name]);
-       Plotly.restyle("top_price", "text", [brand_name]);
-       Plotly.restyle("top_price", "name", "Eyeshadow");
+       Plotly.restyle("top_rating", "x", [makeup_rating]);
+       Plotly.restyle("top_rating", "y", [product_name]);
+       Plotly.restyle("top_rating", "text", [brand_name]);
+       Plotly.restyle("top_rating", "name", "Eyeshadow");
 
 
 })};

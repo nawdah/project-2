@@ -5,7 +5,7 @@
 function ratingRendering(){
 
     d3.json("../makeup_data.json").then((data) => {
-        console.log(data);
+        // console.log(data);
         
         var foundationRating = [];
         let topFoundationRating = data["top10_foundation_rating.csv"];
@@ -20,14 +20,14 @@ function ratingRendering(){
                 }
         }
 
-          console.log(foundationRating);
+        //   console.log(foundationRating);
     });
 
   
 
     d3.json("../makeup_data.json").then((data) => {
 
-        let topBlushRating = data["top10_blush_rating"];
+        let topBlushRating = data["top10_blush_rating.csv"];
         var blushRating = [];
 
         // let blush = d3.selectAll("[alt='blush']");
@@ -40,16 +40,16 @@ function ratingRendering(){
             };
         };
         
-
+        // console.log(blushRating);
     });
-    console.log(blushRating);
+    
 
     d3.json("../makeup_data.json").then((data) => {
 
-        let topEyeshadowRating = data["top10_eyeshadow_rating"];
+        let topEyeshadowRating = data["top10_eyeshadow_rating.csv"];
         var eyeshadowRating = [];
 
-        let eyeshadow = d3.selectAll("[alt='eyeshadow']");
+        // let eyeshadow = d3.selectAll("[alt='eyeshadow']");
         for(const e in topEyeshadowRating){
             var eyeshadowProdRating = topEyeshadowRating[e];
             for(const rating in eyeshadowProdRating){
@@ -58,17 +58,17 @@ function ratingRendering(){
                 };
             };
         };
-        
+        // console.log(eyeshadowRating);
 
     });
-    console.log(eyeshadowRating);
+    
 
     d3.json("../makeup_data.json").then((data) => {
 
-        let topEyelinerRating = data["top10_eyeliner_rating"];
+        let topEyelinerRating = data["top10_eyeliner_rating.csv "];
         var eyelinerRating = [];
 
-        let eyeliner = d3.selectAll("[alt='eyeliner']");
+        // let eyeliner = d3.selectAll("[alt='eyeliner']");
         for(const e in topEyelinerRating){
             var eyelinerProdRating = topEyelinerRating[e];
             for(const rating in eyelinerProdRating){
@@ -77,9 +77,9 @@ function ratingRendering(){
                 };
             };
         };
-
+        // console.log(eyelinerRating);
     });
-    console.log(eyelinerRating);
+
 
 
 
@@ -88,10 +88,12 @@ function ratingRendering(){
     let foundationClick = document.querySelectorAll("[alt='foundation']");
     for(var i=0; i<foundationClick.length;i++){
         foundationClick[i].addEventListener("click", function(){
+            // console.log("something");
             var temp = 5;
-            var location = document.getElementById('product_rating')
+            var location = d3.select('#product_rating')
             for (var x = 0; x < temp ; x++) {
-                location.innerHTML += "<img src='../static/images/fenty_foundation.png'";
+                location.append("img").attr("src",'../static/images/fenty_foundation.png' );
+                // location.innerHTML += "<img src='../static/images/fenty_foundation.png'";
             }
             
         });
@@ -128,6 +130,6 @@ function ratingRendering(){
 
 }
 
-ratingRendering();
+// ratingRendering();
 
 

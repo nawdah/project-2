@@ -79,26 +79,26 @@ function init() {
         // }
 
         //RATING VISUALIZATION PLOT
-        var trace1 = {
-            x: [],
-            y: [],
-            type: "bar",
-            name: "Empty",
-            orientation: "h",
-            name: "Product Rating"
-        };
+        // var trace1 = {
+        //     x: [],
+        //     y: [],
+        //     type: "bar",
+        //     name: "Empty",
+        //     orientation: "h",
+        //     name: "Product Rating"
+        // };
         
-        // Create the data array for the plot
-        var data = [trace1];
+        // // Create the data array for the plot
+        // var data = [trace1];
         
-        // Define the plot layout
-        var layout = {
-            title: "Product Rating",
-        };
+        // // Define the plot layout
+        // var layout = {
+        //     title: "Product Rating",
+        // };
         
-        // Plot the chart to a div tag with id "plot"
-        Plotly.newPlot("product_rating", data, layout);
-        d3.select("#product_rating").attr("hidden", true);
+        // // Plot the chart to a div tag with id "plot"
+        // Plotly.newPlot("product_rating", data, layout);
+        // d3.select("#product_rating").attr("hidden", true);
 
          //TOP PRICE VISUALIZATION PLOT
          var trace2 = {
@@ -212,7 +212,7 @@ for(var i=0; i < foundationListen.length; i++){
 
 }
 
-dropDownListen = document.querySelector("#category");
+// dropDownListen = document.querySelector("#category");
 
 
 
@@ -265,10 +265,10 @@ for(var i=0; i < blushListen.length; i++){
 }
 
 
-function eyeshadow(){
-    var eyeshadow = document.querySelectorAll("[alt='eyeshadow']");
+// function eyeshadow(){
+//     var eyeshadow = document.querySelectorAll("[alt='eyeshadow']");
 
-};
+// };
 
 var eyeshadowListen = document.querySelectorAll("[alt='eyeshadow']");
 
@@ -319,10 +319,10 @@ for(var i=0; i < eyeshadowListen.length; i++){
 }
 
 
-function eyeliner(){
-    var eyeliner = document.querySelectorAll("[alt='eyeliner']");
+// function eyeliner(){
+//     var eyeliner = document.querySelectorAll("[alt='eyeliner']");
 
-}
+// }
 
 var eyelinerListen = document.querySelectorAll("[alt='eyeliner']");
 // var eyelinerListen = d3.select("[alt = 'eyeliner']").node();
@@ -403,11 +403,10 @@ function optionChanged(el){
                         product.append("h4").text("Rating: " + infoLabel.rating);
                         // product.append("br");
                         product.append("a").attr("href", infoLabel.url).attr("target","_blank").text("Where to buy");
+                        }
                     }
                 }
-               
+
             };
-        };
-        
-    });
-}
+    })
+};

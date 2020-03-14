@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Beauty Discovery Tool</title>
+  <link href="bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
@@ -29,7 +30,7 @@
     </div>
     <!-- Top Row Begins -->
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-3">
         <!--Dropdown menus start  -->
         <!-- NOTE: COMMENTING OUT CATEGORY DUE TO REDUNDANCY SINCE WE HAVE THE FACE INTERACTION -->
         <!-- <div class="well">
@@ -38,7 +39,7 @@
         </div> -->
         <div class="well">
           <h5>Product: </h5>
-          <select id="product" onchange="optionChanged(this.value)"></select>
+          <select id="product" class="change" onchange="optionChanged(this.value)"></select>
         </div>
         <!-- Dropdown menus end -->
       </div>
@@ -61,7 +62,7 @@
       </div>
       <!-- Product Visualization Ends -->
       <!-- Face Column Starts -->
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="float-right" id="face">
           <!-- Image size: 587 width x 419 height -->
           <img src="../static/images/face.png" alt="" width="350" usemap="#facemap" href="#face" class="face"> <!-- onclick="changeProduct('face')"> -->

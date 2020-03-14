@@ -114,13 +114,7 @@ function topRatingFoundation(){
             "rating" : makeup_rating,
             "brand" : brand_name
         }
-        console.log(obj)
-
-        var temp = 5;
-        var location = document.getElementById('product_rating')
-        for (var x = 0; x < temp ; x++) {
-            location.innerHTML += "<img src='../static/images/fenty_foundation.png'>";
-        }
+        // console.log(obj)
 
         // Build Plot
 

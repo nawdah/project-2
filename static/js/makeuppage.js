@@ -320,98 +320,94 @@ for(var i=0; i < eyeshadowListen.length; i++){
 
 
 function eyeliner(){
-    // var eyeliner = document.querySelectorAll("[alt='eyeliner']");
+    var eyeliner = document.querySelectorAll("[alt='eyeliner']");
 
-        var eyelinerListen = document.querySelectorAll("[alt='eyeliner']");
-    // var eyelinerListen = d3.select("[alt = 'eyeliner']").node();
+}
 
-    for(var i=0; i < eyelinerListen.length; i++){
-        eyelinerListen[i].addEventListener("click", function(){
-            // console.log("This is working");
-            // d3.json("../makeup_data.json").then((data) => {
-                // console.log(data);
-            // });
-            var image =  document.querySelector("div#face img");
-            image.src = "../static/images/eyeliner.png";
-        
-            topPriceEyeliner();
-            topRatingEyeliner();
-            d3.select("#category").attr("disabled", null);
-            d3.select("#product").attr("disabled", null);
-            d3.select("#top_price").attr("hidden", null);
-            d3.select("#top_rating").attr("hidden", null);
-        
-            d3.json("../makeup_data.json").then((data) => {
-                
-                // console.log(data)
-        
-                //FOR TESTING PURPOSES ONLY
-                var top_eyeliner = data["top10_eyeliner_price.csv"];
-                // console.log(top_blush)
-        
-        
-                //FOR DROPDOWN MENU (WE'LL USE THIS TO GENERATE THE PRODUCTS ONCE THE FACE IS CLICKED ON)
-                d3.select("#product").selectAll("option").remove();
-        
-                // LOOPING THROUGH THE PRODUCTS TO ADD THEM TO THE DROPDOWN MENU
-                for(const eyeliner in top_eyeliner) {
-                    // console.log(`${blush} = ${top_blush[blush]}`);
-                    var eyelinerthings = top_eyeliner[eyeliner]
-                    for(const prod in eyelinerthings) {
-                        if (prod == "product") {
-                            // console.log(`${prod} = ${eyelinerthings[prod]}`)
-                            var options = d3.select("#product").append("option");
-                            options.text(`${eyelinerthings[prod]}`).attr("value", `${eyelinerthings[prod]}`);
-                        }
+var eyelinerListen = document.querySelectorAll("[alt='eyeliner']");
+// var eyelinerListen = d3.select("[alt = 'eyeliner']").node();
+
+for(var i=0; i < eyelinerListen.length; i++){
+    eyelinerListen[i].addEventListener("click", function(){
+        // alert("you clicked on the eyeliner")
+        // console.log("This is working");
+        // d3.json("../makeup_data.json").then((data) => {
+            // console.log(data);
+        // });
+        var image =  document.querySelector("div#face img");
+        image.src = "../static/images/eyeliner.png";
+    
+        topPriceEyeliner();
+        topRatingEyeliner();
+        d3.select("#category").attr("disabled", null);
+        d3.select("#product").attr("disabled", null);
+        d3.select("#top_price").attr("hidden", null);
+        d3.select("#top_rating").attr("hidden", null);
+    
+        d3.json("../makeup_data.json").then((data) => {
+            
+            // console.log(data)
+    
+            //FOR TESTING PURPOSES ONLY
+            var top_eyeliner = data["top10_eyeliner_price.csv"];
+            // console.log(top_blush)
+    
+    
+            //FOR DROPDOWN MENU (WE'LL USE THIS TO GENERATE THE PRODUCTS ONCE THE FACE IS CLICKED ON)
+            d3.select("#product").selectAll("option").remove();
+            
+    
+            // LOOPING THROUGH THE PRODUCTS TO ADD THEM TO THE DROPDOWN MENU
+            for(const eyeliner in top_eyeliner) {
+                // console.log(`${blush} = ${top_blush[blush]}`);
+                var eyelinerthings = top_eyeliner[eyeliner]
+                for(const prod in eyelinerthings) {
+                    if (prod == "product") {
+                        // console.log(`${prod} = ${eyelinerthings[prod]}`)
+                        var options = d3.select("#product").append("option");
+                        options.text(`${eyelinerthings[prod]}`).attr("value", `${eyelinerthings[prod]}`);
                     }
                 }
-            })
-        });
-
-    }
-
-
+            }
+        })
+    });
 
 }
 
 
 
-function optionChanged(el){
-    // console.log(el);
 
-    d3.select("#product_name").selectAll().remove()
+function optionChanged(el){
+
+    // 
 
     d3.json("../makeup_data.json").then((data) => {
     
         let product = d3.select("#product_name");
+        d3.select("#product_name").html(" ");
         for(const e in data){
-            // console.log(data[e]);
+            
             var prodInfo = data[e];
             for(const info in prodInfo){
-                // console.log(prodInfo[info]);
+                
                 var infoLabel = prodInfo[info]
                 for(const tableInfo in infoLabel){
-                    // console.log(infoLabel[tableInfo]);
-                    // console.log(infoLabel[tableInfo] == el);
+                    
                     if (infoLabel[tableInfo] == el){
                         product.append("h3").text("Product: " + infoLabel.product);
                         product.append("br")
-                        product.append("h4").text("Brand: " + infoLabel.brand); //infoLabel[tableInfo]
+                        product.append("h4").text("Brand: " + infoLabel.brand); 
                         product.append("br");
                         product.append("h5").text("Price: " + infoLabel.price);
                         product.append("br");
                         product.append("h5").text("Rating: " + infoLabel.rating);
                         product.append("br");
-                        product.append("h5").text("Ingredients " + infoLabel.ingredients);
-                        product.append("br");
-                        product.append("a").href(infoLabel.url).text("Where to buy");
+                        // product.append("a").href(infoLabel.url).text("Where to buy");
                     }
                 }
-                
                
             };
         };
         
-    
     });
 }

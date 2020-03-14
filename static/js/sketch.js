@@ -2,16 +2,21 @@
 //use jquery to essentially display 5 stars of product
 //image if the value is less than .5 = 0 stars
 //if > .5 then its 1 and so forth
+
 function ratingRendering(){
     d3.json("../makeup_data.json").then((data) => {
         console.log(data);
+
+        let product = d3.select("#product_rating");
+        d3.select("#product_rating")//.html(" ");
         
         var foundationRating = [];
         var blushRating = [];
         var eyeshadowRating = [];
         var eyelinerRating = [];
 
-        let topFoundationRating = data["top10_foundation_rating"];
+        let topFoundationRating = data["top10_foundation_rating.csv"];
+        console.log(topFoundationRating)
 
         let foundation = d3.selectAll("[alt='foundation']");
         for(const f in topFoundationRating){
@@ -24,8 +29,9 @@ function ratingRendering(){
         };
 
     });
-    console.log(foundationRating);
+    // console.log(foundationRating);
 
+// *** DB LEFT CODE UNTOUCHED BELOW THIS LINE ***    
     d3.json("../makeup_data.json").then((data) => {
 
         let topBlushRating = data["top10_blush_rating"];

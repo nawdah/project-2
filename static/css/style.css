@@ -3,6 +3,7 @@ h1 {
     text-transform: uppercase;
     font-family: 'Lora', serif;
     letter-spacing: -2px;
+    font-weight: bold;
 }
 
 h3 {
@@ -34,13 +35,20 @@ p {
 
 }
 
+.change select{
+    min-width: 10px;
+}
+
 .btn-dark {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
     text-transform: uppercase;
+    box-shadow: 10px 10px 5px grey;
+    background-color: white;
 }
 
-/* .jumbotron {
+.jumbotron {
+    background-color: white;
 
-} */
+} 

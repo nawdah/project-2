@@ -417,19 +417,19 @@ function optionChanged(el){
 
                         if(infoLabel.product_type == "blush") {
                             for (var x = 0; x < labelRating ; x++) {
-                                location.append("img").attr("src",'../static/images/blushTemplate.png' ).attr("width", 75);
+                                location.append("img").attr("src",'../static/images/fenty_blush.png' ).attr("width", 125);
                             }
                         }
 
                         if(infoLabel.product_type == "eyeliner") {
                             for (var x = 0; x < labelRating ; x++) {
-                                location.append("img").attr("src",'../static/images/eyelinerTemplate.png' ).attr("width", 75);
+                                location.append("img").attr("src",'../static/images/fenty_eyeliner.png' ).attr("height", 125);
                             }
                         }
 
                         if(infoLabel.product_type == "eyeshadow") {
                             for (var x = 0; x < labelRating ; x++) {
-                                location.append("img").attr("src",'../static/images/eyeshadowTemplate.png' ).attr("width", 75);
+                                location.append("img").attr("src",'../static/images/fenty_eyeshadow.png' ).attr("width", 125);
                             }
                         }
                     }

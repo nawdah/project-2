@@ -377,16 +377,35 @@ function eyeliner(){
 
 
 function optionChanged(el){
+    // console.log(el);
+
+    d3.select("#product_name").selectAll().remove()
 
     d3.json("../makeup_data.json").then((data) => {
     
-        let product = d3.select("#productinfo");
+        let product = d3.select("#product_name");
         for(const e in data){
+            // console.log(data[e]);
             var prodInfo = data[e];
             for(const info in prodInfo){
-                //console.log(info);
-                for(const tableInfo in info){
-                    console.log(tableInfo)
+                // console.log(prodInfo[info]);
+                var infoLabel = prodInfo[info]
+                for(const tableInfo in infoLabel){
+                    // console.log(infoLabel[tableInfo]);
+                    // console.log(infoLabel[tableInfo] == el);
+                    if (infoLabel[tableInfo] == el){
+                        product.append("h3").text("Product: " + infoLabel.product);
+                        product.append("br")
+                        product.append("h4").text("Brand: " + infoLabel.brand); //infoLabel[tableInfo]
+                        product.append("br");
+                        product.append("h5").text("Price: " + infoLabel.price);
+                        product.append("br");
+                        product.append("h5").text("Rating: " + infoLabel.rating);
+                        product.append("br");
+                        product.append("h5").text("Ingredients " + infoLabel.ingredients);
+                        product.append("br");
+                        product.append("a").href(infoLabel.url).text("Where to buy");
+                    }
                 }
                 
                

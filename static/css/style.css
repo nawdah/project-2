@@ -1,3 +1,7 @@
+.container {
+    margin: 0px;
+}
+
 h1 {
     text-align: center;
     text-transform: uppercase;
@@ -35,11 +39,18 @@ p {
 
 }
 
-.change select{
-    min-width: 10px;
+a {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
 }
 
-.btn-dark {
+select {
+    max-width: 240px;
+}
+
+.btn-light {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;

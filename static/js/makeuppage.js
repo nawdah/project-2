@@ -395,14 +395,14 @@ function optionChanged(el){
                     
                     if (infoLabel[tableInfo] == el){
                         product.append("h3").text("Product: " + infoLabel.product);
-                        product.append("br")
+                        // product.append("br")
                         product.append("h4").text("Brand: " + infoLabel.brand); 
-                        product.append("br");
+                        // product.append("br");
                         product.append("h4").text("Price: " + infoLabel.price);
-                        product.append("br");
+                        // product.append("br");
                         product.append("h4").text("Rating: " + infoLabel.rating);
-                        product.append("br");
-                        // product.append("a").href(infoLabel.url).text("Where to buy");
+                        // product.append("br");
+                        product.append("a").attr("href", infoLabel.url).attr("target","_blank").text("Where to buy");
                     }
                 }
                

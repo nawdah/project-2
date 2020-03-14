@@ -398,9 +398,9 @@ function optionChanged(el){
                         product.append("br")
                         product.append("h4").text("Brand: " + infoLabel.brand); 
                         product.append("br");
-                        product.append("h5").text("Price: " + infoLabel.price);
+                        product.append("h4").text("Price: " + infoLabel.price);
                         product.append("br");
-                        product.append("h5").text("Rating: " + infoLabel.rating);
+                        product.append("h4").text("Rating: " + infoLabel.rating);
                         product.append("br");
                         // product.append("a").href(infoLabel.url).text("Where to buy");
                     }
